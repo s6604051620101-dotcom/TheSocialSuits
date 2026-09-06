@@ -8,7 +8,7 @@
    --------------------------------------------------------- */
 const PRODUCTS_JSON_PATH = "products.json";
 const APPS_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwOIEZgHaXsL6GbPMm11u2gDtiZYzPXY9SsP3e_I6vycocTQgwTlP_dWKlA63V2Gz8x/exec";
+  "https://script.google.com/macros/s/AKfycby8Z14w9q2XhyilSmfsnrQWD22g8ves_87aPFuxrXpCvtMGTDY-p3Ce_GAhK0N537fJ/exec";
 const SHEET_CSV_URL =
   "https://docs.google.com/spreadsheets/d/e/2PACX-1vQY1gVjnXV529TeCxaUZi_f4oxDL9H0qyHv-BpK--drLTueCBGqjJ1YrOU_b8DjXSzx1FRM9YlSwjIQ/pub?gid=0&single=true&output=csv";
 

@@ -6,7 +6,7 @@
       "type": "สูท Tuxedo",
       "size": ["2S", "S", "M", "L", "XL", "2XL", "3XL"],
       "price": 3000,
-      "image": "file:///Users/admin/Desktop/landing_page/image/Tuxedo.jpg",
+      "image": "image/Tuxedo.jpg",
       "description": "ชุดสูททักซิโด้สีดำสไตล์คลาสสิก ตัดเย็บประณีตครบเซต เหมาะสำหรับงานพิธีการและโอกาสสำคัญที่ต้องการความหรูหราสง่างาม"
     },
     {
@@ -15,7 +15,7 @@
       "type": "สูทสีกรมท่า",
       "size": ["2S", "S", "M", "L", "XL", "2XL", "3XL"],
       "price": 2500,
-      "image": "file:///Users/admin/Desktop/landing_page/image/Blue6B.jpg",
+      "image": "image/Blue6B.jpg",
       "description": "สูทสีกรมท่าดีไซน์ 6 กระดุม โทนสีสุภาพเรียบหรู เหมาะกับงานธุรกิจและงานทางการ ให้ลุคที่ดูน่าเชื่อถือและมีระดับ"
     },
     {
@@ -24,7 +24,7 @@
       "type": "สูทสีเบจ",
       "size": ["2S", "S", "M", "L", "XL", "2XL", "3XL"],
       "price": 2500,
-      "image": "file:///Users/admin/Desktop/landing_page/image/Beige.jpg",
+      "image": "image/Beige.jpg",
       "description": "ชุดสูทสีเบจโทนอบอุ่น มาพร้อมเสื้อกั๊กด้านในเพิ่มความหรูหรา เหมาะสำหรับเจ้าบ่าวหรือแขกในงานแต่งงานสไตล์เอาท์ดอร์"
     },
     {
@@ -33,7 +33,7 @@
       "type": "สูทสีชมพูพาสเทล",
       "size": ["2S", "S", "M", "L", "XL", "2XL", "3XL"],
       "price": 1800,
-      "image": "file:///Users/admin/Desktop/landing_page/image/PastelPink.jpg",
+      "image": "image/PastelPink.jpg",
       "description": "สูทโทนสีชมพูพาสเทลอ่อนหวานแต่ยังคงความสุภาพ เหมาะสำหรับงานปาร์ตี้หรือโอกาสพิเศษที่ต้องการความโดดเด่นแบบมีระดับ"
     },
     {
@@ -42,7 +42,7 @@
       "type": "ชุดสูทสีน้ำตาล",
       "size": ["2S", "S", "M", "L", "XL", "2XL", "3XL"],
       "price": 1800,
-      "image": "file:///Users/admin/Desktop/landing_page/image/Brown.jpg",
+      "image": "image/Brown.jpg",
       "description": "สูทสีน้ำตาลกลิ่นอายวินเทจ ตัดเย็บด้วยผ้าคุณภาพดี ให้ลุคคลาสสิกไม่ตกยุค เหมาะกับผู้ที่ชื่นชอบสไตล์ย้อนยุคสุดหรู"
     }
   ]

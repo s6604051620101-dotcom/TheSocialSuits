@@ -16,6 +16,8 @@
   --color-brown-soft: #6f5b48;
   --color-ink: #2a2320;          /* main body text */
   --color-line: #e4dccb;         /* thin borders / dividers */
+  --color-charcoal: #1c1611;     /* near-black warm charcoal, for dark editorial bands */
+  --color-charcoal-soft: #2b221b;
 
   /* ---------- Suit-type accent touches (used sparingly) ---------- */
   --accent-tuxedo: #8a8a8a;      /* grey */
@@ -42,6 +44,7 @@
   --border-thin: 1px solid var(--color-line);
   --transition-base: all 0.35s ease;
   --shadow-soft: 0 10px 30px rgba(59, 42, 31, 0.06);
+  --shadow-elevated: 0 24px 60px rgba(20, 14, 9, 0.18);
   --max-width: 1200px;
 }
 
@@ -282,16 +285,115 @@ p {
 }
 
 /* =========================================================
-   Hero
+   Hero — full-bleed editorial, dark charcoal ground
    ========================================================= */
 .hero {
-  padding: var(--space-2xl) 0 var(--space-xl);
+  position: relative;
+  isolation: isolate;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: var(--space-xl) var(--space-md);
+  background-color: var(--color-charcoal);
+  overflow: hidden;
+}
+
+.hero__backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-size: cover;
+  background-position: center 20%;
+  filter: grayscale(45%) brightness(0.55);
+  transform: scale(1.04);
+}
+
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at center, rgba(28, 22, 17, 0.35) 0%, rgba(28, 22, 17, 0.86) 78%),
+    linear-gradient(180deg, rgba(28, 22, 17, 0.55) 0%, rgba(28, 22, 17, 0.92) 100%);
+}
+
+.hero__content {
+  max-width: 720px;
+}
+
+.hero .eyebrow {
+  color: var(--color-gold-light);
+}
+
+.hero h1 {
+  color: var(--color-cream);
+  font-weight: 500;
+  font-style: italic;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
 }
 
 .hero-subtitle {
-  max-width: 560px;
+  max-width: 480px;
   margin: var(--space-sm) auto var(--space-md);
+  color: rgba(250, 246, 239, 0.72);
+}
+
+.hero__signature {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+  color: var(--color-gold-light);
+  margin-bottom: var(--space-lg);
+}
+
+.hero .btn-outline {
+  color: var(--color-cream);
+  border-color: rgba(250, 246, 239, 0.55);
+}
+
+.hero .btn-outline:hover {
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  border-color: var(--color-cream);
+}
+
+/* thin trust strip directly beneath the hero */
+.value-strip {
+  background-color: var(--color-white);
+  border-bottom: var(--border-thin);
+}
+
+.value-strip .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+
+.value-strip__item {
+  flex: 1 1 200px;
+  text-align: center;
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--color-brown-soft);
+  border-left: var(--border-thin);
+}
+
+.value-strip__item:first-child {
+  border-left: none;
+}
+
+.value-strip__item strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-brown-deep);
+  margin-bottom: 0.15rem;
 }
 
 /* =========================================================
@@ -314,8 +416,7 @@ p {
 }
 
 .product-card:hover {
-  box-shadow: var(--shadow-soft);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
   border-color: var(--color-gold-light);
 }
 
@@ -324,6 +425,13 @@ p {
   aspect-ratio: 3 / 4;
   object-fit: cover;
   background-color: var(--color-cream-soft);
+  filter: grayscale(65%);
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+
+.product-card:hover .product-card__image {
+  filter: grayscale(0%);
+  transform: scale(1.03);
 }
 
 .product-card__body {
@@ -389,6 +497,122 @@ p {
 }
 
 /* =========================================================
+   Filter Bar (product.html)
+   ========================================================= */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+.filter-btn.active {
+  background-color: var(--color-brown-deep);
+  color: var(--color-white);
+  border-color: var(--color-brown-deep);
+}
+
+/* =========================================================
+   Occasions (index.html — 4 การใช้งาน)
+   editorial alternating rows, not a repeated card kit
+   ========================================================= */
+.occasion-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.occasion-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: var(--space-md);
+  align-items: start;
+  padding: var(--space-md) 0;
+  border-bottom: var(--border-thin);
+}
+
+.occasion-row:first-child {
+  padding-top: 0;
+}
+
+.occasion-row:last-child {
+  border-bottom: none;
+}
+
+.occasion-icon {
+  font-size: 2.3rem;
+  line-height: 1;
+  filter: grayscale(35%);
+}
+
+.occasion-row h3 {
+  margin-bottom: 0.4rem;
+}
+
+.occasion-row p {
+  max-width: 640px;
+}
+
+/* =========================================================
+   Product Highlight Links (index.html — การ์ดลิงก์ไป product.html)
+   ========================================================= */
+.highlight-card {
+  display: block;
+  background-color: var(--color-white);
+  border: var(--border-thin);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition-base);
+}
+
+.highlight-card:hover {
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--color-gold-light);
+}
+
+.highlight-card__image {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background-color: var(--color-cream-soft);
+  filter: grayscale(65%);
+  transition: filter 0.6s ease, transform 0.6s ease;
+}
+
+.highlight-card:hover .highlight-card__image {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.highlight-card__body {
+  padding: var(--space-sm) var(--space-sm) var(--space-md);
+}
+
+.highlight-card__name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--color-brown-deep);
+  margin-top: 0.4rem;
+}
+
+.highlight-card__link {
+  display: inline-block;
+  margin-top: var(--space-xs);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--color-gold);
+  background-image: linear-gradient(var(--color-gold), var(--color-gold));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.35s ease;
+}
+
+.highlight-card:hover .highlight-card__link {
+  background-size: 100% 1px;
+}
+
+/* =========================================================
    Divider / Sections
    ========================================================= */
 .divider {
@@ -401,6 +625,38 @@ p {
 
 .section-alt {
   background-color: var(--color-cream-soft);
+}
+
+/* =========================================================
+   Quote / Closing CTA band
+   ========================================================= */
+.quote-band {
+  background-color: var(--color-charcoal);
+  color: var(--color-cream);
+  text-align: center;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.quote-band blockquote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+  color: var(--color-cream);
+  max-width: 700px;
+  margin: 0 auto var(--space-md);
+  line-height: 1.4;
+}
+
+.quote-band .btn-outline {
+  color: var(--color-cream);
+  border-color: rgba(250, 246, 239, 0.55);
+}
+
+.quote-band .btn-outline:hover {
+  background-color: var(--color-gold-light);
+  color: var(--color-charcoal);
+  border-color: var(--color-gold-light);
 }
 
 /* =========================================================
@@ -464,6 +720,30 @@ p {
   .product-grid {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: var(--space-sm);
+  }
+
+  .hero {
+    min-height: auto;
+    padding: var(--space-xl) var(--space-sm) var(--space-lg);
+  }
+
+  .occasion-row {
+    grid-template-columns: 48px 1fr;
+    gap: var(--space-sm);
+  }
+
+  .occasion-icon {
+    font-size: 1.8rem;
+  }
+
+  .value-strip__item {
+    flex: 1 1 45%;
+    border-left: none;
+    border-top: var(--border-thin);
+  }
+
+  .value-strip__item:first-child {
+    border-top: none;
   }
 
   .footer-links {
